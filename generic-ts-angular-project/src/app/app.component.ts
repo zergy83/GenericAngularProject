@@ -1,26 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormComponent } from "./form-component/form-component.component";
-
+import { RouterLink,  RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,
-    ReactiveFormsModule,
-    CommonModule,
-    FormComponent],
-  template: `
-    <h1>Welcome to {{title}}!</h1>
-    <app-form-component></app-form-component>
-
-    <router-outlet />
-  `,
-  styles: [],
+  imports: [RouterOutlet, RouterLink],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
-
 export class AppComponent {
-  title = 'Project test for angular 19';
+  title = 'provide-httpclient-example';
 }
-
-import { CommonModule } from '@angular/common';
