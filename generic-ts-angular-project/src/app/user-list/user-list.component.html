@@ -7,13 +7,21 @@
     {{ errorMessage }}
   </div>
 
-  <ul *ngIf="!isLoading && users.length > 0">
-    <li *ngFor="let user of users">
-      <h3>{{ user.name }}</h3>
-      <p>Email: {{ user.email }}</p>
-      <p>Phone: {{ user.phone }}</p>
-    </li>
-  </ul>
+  <div class="user-cards-container">
+    <ng-container *ngFor="let user of users">
+      <p-card *ngIf="!isLoading && users.length > 0" class="user-card">
+        <ng-template pTemplate="header">
+          <h3>{{ user.name }}</h3>
+        </ng-template>
+      
+        <ng-template pTemplate="content">
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Phone:</strong> {{ user.phone }}</p>
+        </ng-template>
+      </p-card>
+    </ng-container>
+  </div>
+  
 
   <div *ngIf="!isLoading && users.length === 0">
     No users found.

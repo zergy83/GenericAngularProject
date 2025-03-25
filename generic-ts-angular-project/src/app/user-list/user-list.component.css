@@ -34,3 +34,49 @@
     color: #0c5460;
   }
   
+  /* Conteneur Flex pour les cartes */
+.user-cards-container {
+  display: flex;
+  flex-wrap: wrap;  /* Permet aux cartes de revenir à la ligne lorsque nécessaire */
+  gap: 20px;        /* Espacement entre les cartes */
+  justify-content: space-evenly; /* Espace égal entre les cartes */
+}
+
+/* Chaque carte prendra 20% de la largeur (5 cartes par ligne) */
+.user-card {
+  flex: 1 1 calc(20% - 20px);  /* 20% de la largeur moins l'espacement entre les cartes */
+  box-sizing: border-box;
+  margin-bottom: 20px; 
+  color: #1c6113; /* Espacement en bas des cartes */
+
+    /* Ajout de la bordure extérieure */
+    border: 2px solid #007BFF;  /* Bordure bleue de 2px */
+    border-radius: 8px;         /* Coins arrondis */
+    padding: 16px;              /* Un peu de padding à l'intérieur de la carte */
+    transition: box-shadow 0.3s ease; /* Animation pour l'ombre */
+}
+
+/* Ajuster les cartes pour les écrans plus petits */
+@media (max-width: 1200px) {
+  .user-card {
+    flex: 1 1 calc(25% - 20px);  /* 4 cartes par ligne sur les écrans plus petits */
+  }
+}
+
+@media (max-width: 900px) {
+  .user-card {
+    flex: 1 1 calc(33.33% - 20px);  /* 3 cartes par ligne sur les écrans encore plus petits */
+  }
+}
+
+@media (max-width: 600px) {
+  .user-card {
+    flex: 1 1 calc(50% - 20px);  /* 2 cartes par ligne sur les petits écrans */
+  }
+}
+
+@media (max-width: 400px) {
+  .user-card {
+    flex: 1 1 100%;  /* 1 carte par ligne sur les très petits écrans */
+  }
+}

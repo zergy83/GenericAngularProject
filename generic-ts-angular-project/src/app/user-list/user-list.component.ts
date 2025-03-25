@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service'
 import { CommonModule } from '@angular/common';
 import { User } from '../interface/user';
+import { CardModule } from 'primeng/card';  
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule, CardModule]
 })
 
 /**
