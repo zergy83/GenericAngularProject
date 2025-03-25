@@ -1,5 +1,5 @@
 <header>
-  <p-breadcrumb class="max-w-full" [model]="items">
+  <p-breadcrumb class="breadcrum-container" [model]="items">
     <ng-template #item let-item>
       <ng-container *ngIf="item.route; else elseBlock">
         <a [routerLink]="item.route" class="p-breadcrumb-item-link">
@@ -13,15 +13,10 @@
       </ng-template>
     </ng-template>
   </p-breadcrumb>
-  
-<!--   <nav>
-    <a routerLink="/" routerLinkActive="active">Home</a>
-    <a routerLink="/users" routerLinkActive="active">Users</a>
-  </nav> -->
 </header>
 
 <main>
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </main>
 
 <footer>

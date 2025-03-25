@@ -33,7 +33,7 @@ export class UserListComponent implements OnInit {
     this.errorMessage = '';
 
     // last version
-    this.userService.getUsers().subscribe({
+    this.userService.getFilteredUsers().subscribe({
       next: (data) => {
         this.users = data;
         this.isLoading = false;
