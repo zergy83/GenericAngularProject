@@ -10,11 +10,16 @@ import { User } from '../interface/user';
   imports: [CommonModule]
 })
 
+/**
+ * Composant qui gère le get et l'affichage de la liste des utilisateurs.
+ * Ce composant charge les utilisateurs depuis un service et une interface User et les affiche dans un template.
+ * Il gère également l'état de chargement et les erreurs de requete REST.
+ */
 export class UserListComponent implements OnInit {
 
   users: User[] = [];
   isLoading: boolean = false;
-  errorMessage: string = 'Cannot get users';
+  errorMessage: string = '';
 
   constructor(private userService: UserService, private commonModule: CommonModule) { }
 

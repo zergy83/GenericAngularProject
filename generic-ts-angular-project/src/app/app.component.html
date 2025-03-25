@@ -1,8 +1,23 @@
 <header>
-  <nav>
+  <p-breadcrumb class="max-w-full" [model]="items">
+    <ng-template #item let-item>
+      <ng-container *ngIf="item.route; else elseBlock">
+        <a [routerLink]="item.route" class="p-breadcrumb-item-link">
+          <span class="text-primary font-semibold">{{ item.label }}</span>
+        </a>
+      </ng-container>
+      <ng-template #elseBlock>
+        <a [href]="item.url">
+          <span class="text-color">{{ item.label }}</span>
+        </a>
+      </ng-template>
+    </ng-template>
+  </p-breadcrumb>
+  
+<!--   <nav>
     <a routerLink="/" routerLinkActive="active">Home</a>
     <a routerLink="/users" routerLinkActive="active">Users</a>
-  </nav>
+  </nav> -->
 </header>
 
 <main>
@@ -10,5 +25,5 @@
 </main>
 
 <footer>
-  <p>&copy; 2025 render with last angular version</p>
+  <p>&copy; March 2025 Personnal Project with last TS/Node/ Angular version</p>
 </footer>
