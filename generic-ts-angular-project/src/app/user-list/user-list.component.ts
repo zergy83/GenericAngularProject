@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service'; // Importer le service
+import { UserService } from '../services/user.service'
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,18 +9,15 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule]
 })
 
-
-
 export class UserListComponent implements OnInit {
 
-  users: any[] = [];  // Tableau pour stocker les utilisateurs
-  isLoading: boolean = false;  // Indicateur pour l'état de chargement
-  errorMessage: string = '';  // Pour afficher les erreurs, le cas échéant
+  users: any[] = [];
+  isLoading: boolean = false;
+  errorMessage: string = 'Cannot get users';
 
   constructor(private userService: UserService, private commonModule: CommonModule) {}
 
   ngOnInit(): void {
-    // Tu peux initialiser ici ou appeler `getUsers` directement quand le composant est chargé
   }
 
   // Méthode pour charger les utilisateurs quand le bouton est cliqué
