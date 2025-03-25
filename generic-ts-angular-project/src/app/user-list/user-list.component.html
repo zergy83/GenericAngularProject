@@ -1,5 +1,7 @@
-<div class="container">
-  <button (click)="loadUsers()" [disabled]="isLoading">Load Users</button>
+<div class="user-list-container">
+  <div class="button-container">
+    <button (click)="loadUsers()" [disabled]="isLoading">Load Users</button>
+  </div>
 
   <div *ngIf="isLoading">Loading...</div>
 

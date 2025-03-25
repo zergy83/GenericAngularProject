@@ -1,5 +1,4 @@
 .user-list-container {
-    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -80,3 +79,18 @@
     flex: 1 1 100%;  /* 1 carte par ligne sur les très petits écrans */
   }
 }
+
+/* Conteneur qui centre le bouton */
+.button-container {
+  display: flex;
+  justify-content: center;  /* Centre le bouton horizontalement */
+  margin-top: 20px;  /* Un peu de marge au-dessus */
+}
+
+/* Si tu veux un petit padding autour du bouton */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
