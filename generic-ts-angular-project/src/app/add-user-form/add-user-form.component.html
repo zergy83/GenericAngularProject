@@ -1,0 +1,20 @@
+<div class="add-user-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label>
+            Nom:
+            <input type="name" formControlName="name">
+        </label>
+        <br>
+        <label>
+            Email:
+            <input type="email" formControlName="email">
+        </label>
+        <br>
+        <label>
+            Tel:
+            <input type="phone" formControlName="phone">
+        </label>
+        <br>
+        <button type="submit">Ajouter utilisateur</button>
+    </form>
+</div>
