@@ -3,13 +3,15 @@ import { UserService } from '../services/user.service'
 import { CommonModule } from '@angular/common';
 import { User } from '../interface/user';
 import { CardModule } from 'primeng/card';
-import { AddUserFormComponent } from "../add-user-form/add-user-form.component";  
+import { AddUserFormComponent } from "../add-user-form/add-user-form.component";
+import { Dialog } from 'primeng/dialog';
+import { EditUserFormComponent } from "../edit-user-form/edit-user-form.component";   
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
-  imports: [CommonModule, CardModule, AddUserFormComponent]
+  imports: [CommonModule, CardModule, AddUserFormComponent, EditUserFormComponent, Dialog]
 })
 
 /**
@@ -22,6 +24,9 @@ export class UserListComponent implements OnInit {
   users: User[] = [];
   isLoading: boolean = false;
   errorMessage: string = '';
+
+  selectedUser: User | null = null;
+  displayEditModal: boolean = false; 
 
   constructor(private userService: UserService, private commonModule: CommonModule) { }
 
@@ -61,4 +66,17 @@ export class UserListComponent implements OnInit {
         );
       } */
   }
+
+    // Ouvrir la modale et passer l'utilisateur sélectionné
+    openEditModal(user: User): void {
+      console.log('openEditModal', user);
+      this.selectedUser = user;
+      this.displayEditModal = true;
+    }
+  
+    // Fermer la modale
+    closeEditModal(): void {
+      this.displayEditModal = false;
+      this.selectedUser = null;
+    }
 }

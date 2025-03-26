@@ -42,6 +42,12 @@ export class UserService {
       })
     );
   }
+
+  putUser(neoUser: User): any {
+    console.log('User modified', neoUser);
+    return this.http.put(this.apiUrl, neoUser);
+  }
+
   
 
 }

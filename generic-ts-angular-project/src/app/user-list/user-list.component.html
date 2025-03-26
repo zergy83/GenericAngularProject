@@ -15,16 +15,22 @@
         <ng-template pTemplate="header">
           <h3>{{ user.name }}</h3>
         </ng-template>
-      
+
         <ng-template pTemplate="content">
           <p><strong>Email:</strong> {{ user.email }}</p>
           <p><strong>Phone:</strong> {{ user.phone }}</p>
+          <button (click)="openEditModal(user)">Edit</button>
+          
+          <p-dialog [(visible)]="displayEditModal" [modal]="true" [style]="{width: '50vw'}">
+            <app-edit-user-form [userToEdit]="selectedUser" (close)="closeEditModal()"></app-edit-user-form>
+          </p-dialog>
+        
         </ng-template>
       </p-card>
     </ng-container>
   </div>
 
-<!--   <ul *ngIf="!isLoading && users.length > 0">
+  <!--   <ul *ngIf="!isLoading && users.length > 0">
     <li *ngFor="let user of users">
       <h3>{{ user.name }}</h3>
       <p>Email: {{ user.email }}</p>
@@ -37,6 +43,14 @@
     No users found.
   </div>
 
+  <!-- PrimeNG Dialog pour l'édition -->
+
+
+
 </div>
 
-<app-add-user-form></app-add-user-form>
+<div class="add-user-form-container">
+  <h3>Add a new User</h3>
+  <app-add-user-form></app-add-user-form>
+
+</div>
