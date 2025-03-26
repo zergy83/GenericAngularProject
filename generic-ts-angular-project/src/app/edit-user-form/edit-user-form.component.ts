@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { User } from '../interface/user';
@@ -17,10 +17,10 @@ export class EditUserFormComponent {
 
   constructor(private userService: UserService) { }
 
-    ngOnInit(): void {
-    // Initialisation du formulaire avec les données de l'utilisateur
-    if (this.userToEdit) {
-        console.log('User to edit', this.userToEdit);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['userToEdit'] && this.userToEdit) {
+      // Lorsque userToEdit change, on réinitialise le formulaire avec les nouvelles données
+      console.log('User to edit', this.userToEdit);
 
       this.form = new FormGroup({
         name: new FormControl(this.userToEdit.name),
@@ -35,20 +35,22 @@ export class EditUserFormComponent {
         phone: new FormControl('')
       });
     }
-
-    console.log('Form', this.form);
   }
 
   onSubmit() {
-    let neoUser: User = {
+    if (this.form.invalid) {
+      return;
+    }
+
+    let updatedUser: User = {
       name: this.form.value.name,
       email: this.form.value.email,
       phone: this.form.value.phone
-    }
+    };
 
-    console.log(neoUser);
+    console.log(updatedUser);
 
-    this.userService.putUser(neoUser);
+    this.userService.putUser(updatedUser);
   }
 }
 

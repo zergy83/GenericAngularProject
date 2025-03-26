@@ -20,15 +20,15 @@
           <p><strong>Email:</strong> {{ user.email }}</p>
           <p><strong>Phone:</strong> {{ user.phone }}</p>
           <button (click)="openEditModal(user)">Edit</button>
-          
-          <p-dialog [(visible)]="displayEditModal" [modal]="true" [style]="{width: '50vw'}">
-            <app-edit-user-form [userToEdit]="selectedUser" (close)="closeEditModal()"></app-edit-user-form>
-          </p-dialog>
-        
+             
         </ng-template>
       </p-card>
     </ng-container>
   </div>
+
+  <p-dialog [(visible)]="displayEditModal" [modal]="true" [style]="{width: '50vw'}">
+    <app-edit-user-form [userToEdit]="selectedUser" (close)="closeEditModal()"></app-edit-user-form>
+  </p-dialog>
 
   <!--   <ul *ngIf="!isLoading && users.length > 0">
     <li *ngFor="let user of users">

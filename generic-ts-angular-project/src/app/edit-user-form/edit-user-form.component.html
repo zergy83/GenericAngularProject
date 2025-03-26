@@ -2,7 +2,7 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <label>
             Nom:
-            <input type="name" formControlName="name">
+            <input type="text" formControlName="name">
         </label>
         <br>
         <label>
@@ -12,9 +12,9 @@
         <br>
         <label>
             Tel:
-            <input type="phone" formControlName="phone">
+            <input type="tel" formControlName="phone">
         </label>
         <br>
-        <button type="submit">Editer utilisateur</button>
+        <button type="submit" [disabled]="form.invalid">Editer utilisateur</button>
     </form>
 </div>

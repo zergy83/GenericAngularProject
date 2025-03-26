@@ -69,8 +69,8 @@ export class UserListComponent implements OnInit {
 
     // Ouvrir la modale et passer l'utilisateur sélectionné
     openEditModal(user: User): void {
-      console.log('openEditModal', user);
       this.selectedUser = user;
+      console.log('selectedUser', this.selectedUser);
       this.displayEditModal = true;
     }
   
